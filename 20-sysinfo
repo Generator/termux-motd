@@ -1,0 +1,43 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+tmp=$(mktemp -d)
+trap 'rm -rf "$tmp"' EXIT
+
+# Fix loadavg
+uptime | grep -Po "average: \K.+"| awk -F", " '{ print $1,$2,$3 }' > $tmp/loadavg
+
+# get load averages
+IFS=" " read LOAD1 LOAD5 LOAD15 <<<$(cat $tmp/loadavg)
+# get free memory
+IFS=" " read USED AVAIL TOTAL <<<$(free -htm | grep "Mem" | awk {'print $3,$7,$2'})
+# get processes
+PROCESS=$(ps -eo user=|sort|uniq -c | awk '{ print $2 " " $1 }')
+PROCESS_ALL=$(echo "$PROCESS"| awk {'print $2'} | awk '{ SUM += $1} END { print SUM }')
+PROCESS_ROOT=$(echo "su -c ${PROCESS}"| grep root | awk {'print $2'})
+PROCESS_USER=$(echo "$PROCESS"| grep -v root | awk {'print $2'} | awk '{ SUM += $1} END { print SUM }')
+# get processors
+PROCESSOR_NAME=$(grep "model name" /proc/cpuinfo | cut -d ' ' -f3- | awk {'print $0'} | head -1)
+PROCESSOR_COUNT=$(grep -ioP 'processor\t:' /proc/cpuinfo | wc -l)
+
+if [[ -d /system/app/ && -d /system/priv-app ]]; then
+    DISTRO="Android $(getprop ro.build.version.release)"
+    MODEL="$(getprop ro.product.brand) $(getprop ro.product.model)"
+fi
+
+W="\e[0;39m"
+G="\e[1;32m"
+C="\e[1;36m"
+BOLD='\033[1m'
+
+echo -e "
+${W}${BOLD}System Info:
+$C  Distro    : $W$DISTRO
+$C  Host      : $W$MODEL
+$C  Kernel    : $W$(uname -sr)
+
+$C  Uptime    : $W$(uptime -p)
+$C  Load      : $G$LOAD1$W (1m), $G$LOAD5$W (5m), $G$LOAD15$W (15m)
+$C  Processes : $G$PROCESS_ROOT $W(root), $G$PROCESS_USER$W (user), $G$PROCESS_ALL$W (total)
+
+$C  CPU       : $W$PROCESSOR_NAME ($G$PROCESSOR_COUNT$W vCPU)
+$C  Memory    : $G$USED$W used, $G$AVAIL$W avail, $G$TOTAL$W total$W"

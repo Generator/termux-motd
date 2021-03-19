@@ -1,0 +1,15 @@
+#!/data/data/com.termux/files/usr/bin/env bash
+
+c1="\e[1;32m" # Green
+c2="\e[39m"   # Wite
+STOP="\e[0m"
+
+LOGO="
+  ;,           ,;
+   ';,.-----.,;'
+  ,'           ',
+ /    ${c2}O     O${c1}    \\
+|                 |
+'-----------------'
+"
+printf "${c1}${LOGO}${STOP}"

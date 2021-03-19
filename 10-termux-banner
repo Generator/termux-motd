@@ -1,0 +1,13 @@
+#!/data/data/com.termux/files/usr/bin/env bash
+
+test $(which figlet) &>/dev/null
+if [ $? != 0 ]; then
+    echo -e "filget not found.\nPlease install figlet first"
+    exit 1
+else
+    BLUE='\e[1;34m'
+    NC='\033[0m'
+    printf "${BLUE}"
+    figlet -c "Termux"
+    printf "${BLUE}"
+fi 
