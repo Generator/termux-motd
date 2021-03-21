@@ -5,7 +5,7 @@
 
 Collection of my 'Message of the Day' scripts for [Termux](https://termux.com/).
 
-![motd](motd.png)
+![Screen1](Screenshots/screen1.jpeg) ![Screen2](Screenshots/screen2.jpeg)
 
 
 ### Requirements
