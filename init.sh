@@ -6,7 +6,7 @@
 
 
 
-for i in $(find $MOTD -regex '.+/[0-9\-].+' -not -regex ".+\.disabled")
+for i in $(find $MOTD -maxdepth 1 -regex '.+/[0-9\-].+' -not -regex ".+\.disabled")
 do
     bash $i
 done
