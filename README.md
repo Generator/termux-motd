@@ -10,12 +10,16 @@ Collection of my 'Message of the Day' scripts for [Termux](https://termux.com/).
 * figlet (termux-banner)
 
 
-### How do I set it up?
+## Install
+    wget -qO- https://git.io/Jm5hb | bash
 
-TODO
+**Manually**
 
+    git clone --depth 1 https://github.com/Generator/termux-motd.git
+    mv $PREFIX/motd $PREFIX/motd.orig # Disable default Termux MOTD
+    termux-motd/init.sh
+**TODO**
 
-
-### Credits
+## Credits
 
 * [yboetz/motd](https://github.com/yboetz/motd) (Orignal work)
