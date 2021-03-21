@@ -18,10 +18,7 @@ Collection of my 'Message of the Day' scripts for [Termux](https://termux.com/).
 
 **Manually**
 
-    git clone --depth 1 https://github.com/Generator/termux-motd.git
-    mv $PREFIX/motd $PREFIX/motd.orig # Disable default Termux MOTD
-    termux-motd/init.sh
-**TODO**
+    TODO
 
 ## Configure
 

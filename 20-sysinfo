@@ -37,7 +37,8 @@ $C  Kernel    : $W$(uname -sr)
 
 $C  Uptime    : $W$(uptime -p)
 $C  Load      : $G$LOAD1$W (1m), $G$LOAD5$W (5m), $G$LOAD15$W (15m)
-$C  Processes : $G$PROCESS_ROOT $W(root), $G$PROCESS_USER$W (user), $G$PROCESS_ALL$W (total)
+$C  Processes : $G$PROCESS_USER$W (user), $G$PROCESS_ALL$W (total)
+
 
 $C  CPU       : $W$PROCESSOR_NAME ($G$PROCESSOR_COUNT$W vCPU)
 $C  Memory    : $G$USED$W used, $G$AVAIL$W avail, $G$TOTAL$W total$W"
