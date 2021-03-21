@@ -20,6 +20,10 @@ Collection of my 'Message of the Day' scripts for [Termux](https://termux.com/).
     termux-motd/init.sh
 **TODO**
 
+## Configure
+
+Disable modules adding ``.disabled`` to the end of file. (e.g. ``10-android-logo-small.disabled``)
+
 ## Credits
 
 * [yboetz/motd](https://github.com/yboetz/motd) (Orignal work)
