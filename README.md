@@ -1,3 +1,6 @@
+# DO NOT INSTALL
+## This is still Work in Progress
+
 # Message of the Day
 
 Collection of my 'Message of the Day' scripts for [Termux](https://termux.com/).
