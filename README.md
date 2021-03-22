@@ -1,12 +1,13 @@
-# DO NOT INSTALL
-## This is still Work in Progress
-
 # Message of the Day
 
-Collection of my 'Message of the Day' scripts for [Termux](https://termux.com/).
+Collection of 'Message of the Day' scripts for [Termux](https://termux.com/).
 
-![Screen1](Screenhots/screen1.jpeg) ![Screen2](Screenhots/screen2.jpeg)
+![Screen1](Screenhots/screen1.jpeg)
 
+<details><summary>More Screenshots</summary>
+<img src="Screenhots/screen2.jpeg"/>
+<img src="Screenhots/screen3.jpeg"/>
+</details>
 
 ### Requirements
 
@@ -18,11 +19,13 @@ Collection of my 'Message of the Day' scripts for [Termux](https://termux.com/).
 
 **Manually**
 
-    TODO
+    git clone https://github.com/Generator/termux-motd.git ~/.motd
+    echo "$HOME/.motd/init.sh" >> ~/.profile # or .zprofile if using zsh
 
 ## Configure
 
-Disable modules adding ``.disabled`` to the end of file. (e.g. ``10-android-logo-small.disabled``)
+**Disable Module:** Disable modules adding ``.disabled`` to the end of file. (e.g. ``10-android-logo-small.disabled``)
+**Enable Module:** Remove ``.disabled`` from filename to enable module.
 
 ## Credits
 
