@@ -13,7 +13,7 @@ BOLD='\033[1m'
 NC='\033[0m'
 
 # disk usage: ignore zfs, squashfs & tmpfs
-mapfile -t dfs < <(df -H -t sdcardfs -t fuse | tail -n+2)
+mapfile -t dfs < <(df -H -t sdcardfs -t fuse -t fuse.rclone | tail -n+2)
 printf "\n${BOLD}Disk Usage:${NC}\n"
 
 for line in "${dfs[@]}"; do
